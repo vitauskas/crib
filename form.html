@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Формы</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li><a href="#text_form">текстовые поля</a></li>
+			<li><a href="#placeholder">placeholder</a></li>
+			<li><a href="#label">label</a></li>
+			<li><a href="#checkboxes">флажки</a></li>
+			<li><a href="#switches">переключатели</a></li>
+			<li><a href="#contrast">разница</a></li>
+			<li><a href="#drop_down_menu">выпадающее меню</a></li>
+		</ul>
+	</div>
+
+	<!-- формы: 
+	- текстовые поля (одна или несколько строк)
+	- переключатели
+	- флажки
+	- выпадающие списки
+	- виджеты для загрузки
+	- кнопки отправки -->
+
+<fieldset id="text_form">
+	<legend><h4>текстовые поля</h4></legend>
+		<p>
+			<input type="text"> Текст, любой тип символов
+		</p>
+		<p>
+			<input type="email"> Email, может показывать предупреждение об ошибке
+		</p>
+		<p>
+			<input type="password"> Пароль, символы отображаются как точки
+		</p>
+		<p>
+			<input type="number"> Число, используются клавиши вверх вниз
+		</p>
+		<p>
+			<input type="tel"> Телефон, может сработать автозаполнение
+		</p>
+		<p>
+			<textarea cols="30" rows="10"></textarea> Многострочный текст, может быть изменен размер поля. 
+			<!-- cols="30" ширина в символах; rows="10" высота в строках -->
+		</p>
+</fieldset>
+<fieldset id="placeholder">
+	<legend><h4>placeholder</h4></legend>
+	<input type="text" placeholder="Введите свое имя"> подсказывающий текст, который изчезает при вводе
+</fieldset>
+<fieldset id="label">
+	<legend><h4>label</h4></legend>
+	<label>Email</label>
+	<input type="email"> текстовая метка к элементу формы
+	<p>
+		label (текстовую метку), можно связать с определенным<br>
+		элементом формы с помощью атрибута for, соответствующему<br>
+		значению id у поля. Таким образом, кликая на "имя" - попадаем<br>
+		в окно элемента формы.  
+	</p>
+	<label for="first name">имя</label>
+	<input type="text" id="first name">
+	<p>Но есть и более простой способ. Нужно поместить текст и<br>
+	элемент формы внутрь метки label.  
+	</p>
+	
+	<label>
+		имя <input type="text">
+	</label>
+	<p>
+		При этом абсолютно не важна форма размещения.
+	</p>
+	<label>
+		<p>имя<br>
+		<input type="text">
+		</p>
+	</label>
+</fieldset>
+<fieldset id="checkboxes">
+	<legend><h4>флажки</h4></legend>
+	<p>
+		флажки имеют два состояния:<br>
+		- включено/выключено<br>
+		- да/нет	
+	</p>
+	<p>
+		<input type="checkbox">запомнить меня
+	</p>
+	<p>
+		здесь, тоже, если поместить всю конструкцию<br>
+		внутрь label, то можно кликать и по тексту.
+	</p>
+	<p>
+		<label>
+			<input type="checkbox">запомнить меня
+		</label>
+	</p>
+	<p>
+		по умолчанию флажок выключен. Можно<br>
+		пометить его включенным, используя атрибут<br>
+		checked
+	</p>
+	<p>
+		<label>
+			<input type="checkbox" checked>запомнить меня
+		</label>
+	</p>
+</fieldset>
+<fieldset id="switches">
+	<legend><h4>преключатели</h4></legend>
+	<p>
+		Предоставляют пользователю на выбор список вариантов.<br>
+		Для этого нужно сгрупировать список при помощи<br>
+		одинакового заначения атрибута name.
+	</p>
+	<label>семейное положение</label><br>
+	<label>
+		<input type="radio" name="status">женат
+	</label><br>
+	<label>
+		<input type="radio" name="status">разведен
+	</label><br>
+	<label>
+		<input type="radio" name="status">вдовец
+	</label>
+	<p>
+		Эти переключатели являются взаимоисключающими.<br>
+		Так как name одинаковый для всех переключателей - <br>
+		выбор одного из вариантов отменит все остальные.
+	</p>
+</fieldset>
+<fieldset id="contrast">
+	<legend><h4>разница между переключателями и флажками</h4></legend>
+	<p>
+		<ol>
+			<li>флажок существует сам по себе</li>
+			<li>переключатель существует ввиде списка (>2)</li>
+			<li>выбор флажка произвольный</li>
+			<li>выбор переключателя обязательный</li>
+		</ol>
+	</p>
+</fieldset>
+<fieldset id="drop_down_menu">
+	<legend><h4>выпадающее меню</h4></legend>
+	<p>
+		если количество вариантов для выбора занимает<br> 
+		слишком много места, можно воспользоваться выпадающим<br> 
+		меню select.
+	</p>
+	<select>
+		<option>январь</option>
+		<option>февраль</option>
+		<option>март</option>
+		<option>апрель</option>
+		<option>май</option>
+		<option>июнь</option>
+		<option>июль</option>
+		<option>август</option>
+		<option>сентябрь</option>
+		<option>ноябрь</option>
+		<option>октябрь</option>
+		<option>декабрь</option>
+	</select>
+	<p>
+		множественный выбор из выпадающего меня<br>
+		- атрибут multiple, дает возможность выбора нескольких<br>
+		вариантов.
+	</p>
+	<select multiple>
+		<option>январь</option>
+		<option>февраль</option>
+		<option>март</option>
+		<option>апрель</option>
+		<option>май</option>
+		<option>июнь</option>
+		<option>июль</option>
+		<option>август</option>
+		<option>сентябрь</option>
+		<option>ноябрь</option>
+		<option>октябрь</option>
+		<option>декабрь</option>
+	</select>
+</fieldset>
+
+<div id="back-top">
+<a href="#text_form" onclick="return up()">к началу</a>  
+</div>
+
+<!-- <p>
+	<a href="#text_form">к началу</a>
+</p> -->
+
+<script>
+	function up() {  
+  var top = Math.max(document.body.scrollTop,document.documentElement.scrollTop);  
+if(top > 0) {  
+  window.scrollBy(0,((top+100)/-10));  
+  t = setTimeout('up()',50);  
+} else clearTimeout(t);  
+return false;  
+} 
+</script>
+<script>
+	$(document).ready(function(){
+    $("#menu").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+</script>
+	
+	
+</body>
+</html>
